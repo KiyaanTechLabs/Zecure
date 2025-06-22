@@ -1,0 +1,58 @@
+.zecure-page {
+  padding: 2rem;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+.zecure-main {
+  margin-top: 2rem;
+}
+
+.zecure-logo {
+  margin-bottom: 1rem;
+}
+
+.zecure-ctas {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.zecure-primary,
+.zecure-secondary {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #00ffe0;
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.zecure-secondary {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.zecure-footer {
+  margin-top: 4rem;
+  display: flex;
+  gap: 2rem;
+  border-top: 1px solid #333;
+  padding-top: 1.5rem;
+}
+
+.zecure-primary {
+  padding: 0.6rem 1.2rem;
+  background: #00ffe0;
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    background: #00e6c0;
+    transform: scale(1.03);
+  }
+}
