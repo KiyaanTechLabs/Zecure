@@ -1,137 +1,148 @@
-.zecure-page {
-  padding: 2rem;
-  background-color: #0a0a0a;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-}
+// .zecure-page {
+//   padding: 2rem;
+//   background-color: #0a0a0a;
+//   color: #ffffff;
+//   font-family: 'Inter', sans-serif;
+// }
 
-.zecure-main {
-  margin-top: 2rem;
-}
+// .zecure-main {
+//   margin-top: 2rem;
+// }
 
-.zecure-logo {
-  margin-bottom: 1rem;
-}
+// .zecure-logo {
+//   margin-bottom: 1rem;
+// }
 
-.zecure-ctas {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
-}
+// .zecure-ctas {
+//   margin-top: 2rem;
+//   display: flex;
+//   gap: 1rem;
+// }
 
-.zecure-primary,
-.zecure-secondary {
-  padding: 0.5rem 1rem;
-  border: none;
-  background: #00ffe0;
-  color: #000;
-  text-decoration: none;
-  border-radius: 6px;
-}
+// .zecure-primary,
+// .zecure-secondary {
+//   padding: 0.5rem 1rem;
+//   border: none;
+//   background: #00ffe0;
+//   color: #000;
+//   text-decoration: none;
+//   border-radius: 6px;
+// }
 
-.zecure-secondary {
-  background: #1e1e1e;
-  color: #fff;
-}
+// .zecure-secondary {
+//   background: #1e1e1e;
+//   color: #fff;
+// }
 
-.zecure-footer {
-  margin-top: 4rem;
-  display: flex;
-  gap: 2rem;
-  border-top: 1px solid #333;
-  padding-top: 1.5rem;
-}
+// .zecure-footer {
+//   margin-top: 4rem;
+//   display: flex;
+//   gap: 2rem;
+//   border-top: 1px solid #333;
+//   padding-top: 1.5rem;
+// }
 
-.zecure-primary {
-  padding: 0.6rem 1.2rem;
-  background: #00ffe0;
-  color: #000;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.2s ease-in-out;
+// .zecure-primary {
+//   padding: 0.6rem 1.2rem;
+//   background: #00ffe0;
+//   color: #000;
+//   font-weight: bold;
+//   border-radius: 8px;
+//   text-decoration: none;
+//   transition: 0.2s ease-in-out;
 
-  &:hover {
-    background: #00e6c0;
-    transform: scale(1.03);
-  }
-}
+//   &:hover {
+//     background: #00e6c0;
+//     transform: scale(1.03);
+//   }
+// }
 
-// src/styles/globals.scss
+// // src/styles/globals.scss
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f7fa;
-}
+// body {
+//   margin: 0;
+//   font-family: 'Segoe UI', sans-serif;
+//   background-color: #f5f7fa;
+// }
 
-.zecure-dashboard-layout {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
+// .zecure-dashboard-layout {
+//   display: flex;
+//   height: 100vh;
+//   overflow: hidden;
+// }
 
-.zecure-dashboard-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
+// .zecure-dashboard-main {
+//   flex: 1;
+//   display: flex;
+//   flex-direction: column;
+// }
 
-.zecure-dashboard-content {
-  flex: 1;
-  padding: 1.5rem;
-  overflow-y: auto;
-  background-color: #ffffff;
-}
+// .zecure-dashboard-content {
+//   flex: 1;
+//   padding: 1.5rem;
+//   overflow-y: auto;
+//   background-color: #ffffff;
+// }
 
-.zecure-sidebar {
-  width: 240px;
-  background-color: #0f172a;
-  color: #fff;
-  padding: 2rem 1rem;
-}
+// .zecure-sidebar {
+//   width: 240px;
+//   background-color: #0f172a;
+//   color: #fff;
+//   padding: 2rem 1rem;
+// }
 
-.sidebar-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
+// .sidebar-title {
+//   font-size: 1.2rem;
+//   font-weight: bold;
+//   margin-bottom: 2rem;
+// }
 
-.zecure-sidebar ul {
-  list-style: none;
-  padding: 0;
-}
+// .zecure-sidebar ul {
+//   list-style: none;
+//   padding: 0;
+// }
 
-.zecure-sidebar li {
-  margin-bottom: 1.2rem;
-}
+// .zecure-sidebar li {
+//   margin-bottom: 1.2rem;
+// }
 
-.zecure-sidebar a {
-  color: #cbd5e1;
-  text-decoration: none;
-  font-weight: 500;
-}
+// .zecure-sidebar a {
+//   color: #cbd5e1;
+//   text-decoration: none;
+//   font-weight: 500;
+// }
 
-.zecure-sidebar a:hover {
-  color: #fff;
-}
+// .zecure-sidebar a:hover {
+//   color: #fff;
+// }
 
-.zecure-navbar {
-  height: 64px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
-}
+// .zecure-navbar {
+//   height: 64px;
+//   background-color: #ffffff;
+//   border-bottom: 1px solid #e5e7eb;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 0 2rem;
+// }
 
-.navbar-title {
-  font-size: 1rem;
-  font-weight: 600;
-}
+// .navbar-title {
+//   font-size: 1rem;
+//   font-weight: 600;
+// }
 
-.navbar-right {
-  font-size: 0.875rem;
-  color: #475569;
-}
+// .navbar-right {
+//   font-size: 0.875rem;
+//   color: #475569;
+// }
+
+// h1 {
+//   font-size: 1.75rem;
+//   font-weight: 700;
+//   margin-bottom: 0.5rem;
+// }
+
+// p {
+//   color: #475569;
+//   margin-bottom: 1rem;
+// }
