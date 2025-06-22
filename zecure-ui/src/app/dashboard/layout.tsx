@@ -1,14 +1,16 @@
+import React from "react";
 import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
+import "@/styles/globals.scss";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ display: "flex" }}>
+    <div className="zecure-dashboard-layout">
       <Sidebar />
-      <main style={{ flex: 1 }}>
+      <div className="zecure-dashboard-main">
         <Navbar />
-        <div style={{ padding: "1.5rem" }}>{children}</div>
-      </main>
+        <div className="zecure-dashboard-content">{children}</div>
+      </div>
     </div>
   );
 }

@@ -56,3 +56,82 @@
     transform: scale(1.03);
   }
 }
+
+// src/styles/globals.scss
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+}
+
+.zecure-dashboard-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.zecure-dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.zecure-dashboard-content {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.zecure-sidebar {
+  width: 240px;
+  background-color: #0f172a;
+  color: #fff;
+  padding: 2rem 1rem;
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.zecure-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.zecure-sidebar li {
+  margin-bottom: 1.2rem;
+}
+
+.zecure-sidebar a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.zecure-sidebar a:hover {
+  color: #fff;
+}
+
+.zecure-navbar {
+  height: 64px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.navbar-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.navbar-right {
+  font-size: 0.875rem;
+  color: #475569;
+}
