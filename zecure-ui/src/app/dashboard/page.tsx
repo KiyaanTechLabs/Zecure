@@ -1,10 +1,14 @@
-import styles from "@/styles/Dashboard.module.scss";
+'use client';
+import styles from '@/styles/Dashboard.module.scss';
 
-export default function DashboardHome() {
+export default function DashboardPage() {
   return (
-    <div className={styles.dashboard}>
-      <h1>📊 Zecure Dashboard</h1>
-      <p>Run scans, view threat reports, and manage your security posture.</p>
+    <div className={styles.container}>
+      <h1 className={styles.heading}>Zecure Dashboard 🔍</h1>
+      <p className={styles.subheading}>
+        Run scans, view threat reports, and manage your security posture.
+      </p>
+      <button className={styles.primaryButton}>Run Scan</button>
     </div>
   );
 }

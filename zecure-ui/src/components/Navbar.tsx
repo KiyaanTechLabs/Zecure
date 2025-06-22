@@ -1,14 +1,11 @@
-// src/components/Navbar.tsx
-import React from "react";
-import "@/styles/globals.scss";
+// components/Navbar.tsx
+import styles from '@/styles/Navbar.module.scss';
 
 export default function Navbar() {
   return (
-    <header className="zecure-navbar">
-      <div className="navbar-title">Welcome back 👋</div>
-      <div className="navbar-right">
-        <span>samarth@zecure.com</span>
-      </div>
-    </header>
+    <div className={styles.navbar}>
+      <div className={styles.title}>Zecure Dashboard</div>
+      <div className={styles.user}>👤 Admin</div>
+    </div>
   );
 }

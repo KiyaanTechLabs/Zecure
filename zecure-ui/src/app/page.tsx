@@ -1,22 +1,21 @@
-import "@/styles/globals.scss";
+import styles from "@/styles/Home.module.scss";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="zecure-page">
-      <main className="zecure-main">
+    <div className={styles.landingPage}>
+      <main>
         <h1>Welcome to Zecure 🔐</h1>
         <p>
           Zecure is your AI-powered security copilot for fintech and devops.
         </p>
-
-        <ul style={{ marginTop: "2rem", lineHeight: "1.8" }}>
+        <ul>
           <li>🧠 Analyze code and infra</li>
           <li>🛡️ Get real-time threat insights</li>
           <li>📊 Monitor compliance automatically</li>
         </ul>
-
-        <Link href="/dashboard" className="zecure-primary" style={{ marginTop: "2rem", display: "inline-block" }}>
+        <Link className={styles.primaryButton} href="/dashboard">
           Start Securing →
         </Link>
       </main>

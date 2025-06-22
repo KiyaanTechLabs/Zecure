@@ -1,10 +1,12 @@
-import styles from "@/styles/Scans.module.scss";
+'use client';
+import styles from '@/styles/Scans.module.scss';
 
-export default function ScanPage() {
+export default function ScansPage() {
   return (
-    <div className={styles.scans}>
-      <h1>🧠 Scans</h1>
-      <p>View your past scans and run new ones here.</p>
+    <div className={styles.container}>
+      <h1 className={styles.heading}>🧠 Scan Reports</h1>
+      <p className={styles.subheading}>View past scans and schedule new ones.</p>
+      <button className={styles.primaryButton}>Start New Scan</button>
     </div>
   );
 }

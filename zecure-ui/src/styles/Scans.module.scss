@@ -1,0 +1,33 @@
+.wrapper {
+  padding: 2rem;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.scanList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.scanItem {
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.statusSuccess {
+  color: #16a34a;
+  font-weight: 500;
+}
+
+.statusError {
+  color: #dc2626;
+  font-weight: 500;
+}

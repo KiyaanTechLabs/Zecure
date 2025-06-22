@@ -1,0 +1,20 @@
+// styles/Navbar.module.scss
+.navbar {
+  height: 64px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.user {
+  font-size: 0.875rem;
+  color: #475569;
+}
