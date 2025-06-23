@@ -4,11 +4,14 @@ import { useState, useEffect } from 'react';
 import { Shield, Zap, Eye, FileCheck, Brain, Building, Users, CheckCircle } from 'lucide-react';
 import styles from '../styles/Home.module.scss';
 
+import { useRouter } from 'next/navigation';
+
 interface TerminalLine {
   text: string;
   type: 'command' | 'output' | 'warning' | 'success';
   delay: number;
 }
+
 
 const terminalLines: TerminalLine[] = [
   { text: '$ zecure scan --target ./src', type: 'command', delay: 0 },
@@ -69,6 +72,7 @@ export default function HomePage() {
   const [displayedLines, setDisplayedLines] = useState<TerminalLine[]>([]);
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -116,12 +120,15 @@ export default function HomePage() {
                 <span className={styles.logoGradient}>Zecure</span>: AI Security Copilot
               </h1>
               <p>
-                Intelligent security analysis for modern applications. 
-                Automated vulnerability detection, compliance reporting, 
+                Intelligent security analysis for modern applications.
+                Automated vulnerability detection, compliance reporting,
                 and AI-powered security insights that scale with your business.
               </p>
               <div className={styles.heroActions}>
-                <button className={styles.ctaButton}>
+                <button
+                  className={styles.ctaButton}
+                  onClick={() => router.push('/dashboard')}
+                >
                   Start Free Trial
                 </button>
                 <button className={styles.secondaryButton}>
@@ -143,7 +150,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            
+
             <div className={styles.heroRight}>
               <div className={styles.terminal}>
                 <div className={styles.terminalHeader}>
@@ -227,7 +234,7 @@ export default function HomePage() {
           <div className={styles.ctaContent}>
             <h2>Ready to Secure Your Applications?</h2>
             <p>Join thousands of developers and security teams using Zecure to protect their code.</p>
-            
+
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className={styles.ctaForm}>
                 <input
@@ -248,7 +255,7 @@ export default function HomePage() {
                 <p>Thank you! We'll be in touch within 24 hours.</p>
               </div>
             )}
-            
+
             <div className={styles.ctaNote}>
               <p>No credit card required • 14-day free trial • Enterprise support available</p>
             </div>

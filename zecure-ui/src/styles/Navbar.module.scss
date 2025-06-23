@@ -18,3 +18,29 @@
   font-size: 0.875rem;
   color: #475569;
 }
+
+.userActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logoutButton {
+  background-color: #ef4444; // Tailwind Red-500
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #dc2626; // Darker red on hover
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.4);
+  }
+}

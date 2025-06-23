@@ -1,13 +1,12 @@
-// src/app/layout.tsx
+import "@/styles/globals.scss";
+import type { Metadata } from "next";
 
-import React from 'react';
-import '@/styles/globals.scss';
+export const metadata: Metadata = {
+  title: "Zecure",
+  description: "Zecure – Your AI-powered Security Copilot",
+};
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>{children}</body>

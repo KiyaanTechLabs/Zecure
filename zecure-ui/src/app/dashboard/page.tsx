@@ -1,4 +1,5 @@
 'use client';
+
 import styles from '@/styles/Dashboard.module.scss';
 
 export default function DashboardPage() {
