@@ -3,14 +3,16 @@
 import styles from '@/styles/Sidebar.module.scss';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FiShield, FiGrid, FiSearch, FiSettings, FiCpu } from 'react-icons/fi';
+import { FiShield, FiGrid, FiSearch, FiSettings, FiCpu, FiFileText, FiKey } from 'react-icons/fi';
 import React from 'react';
 
 const navItems = [
   { name: 'Dashboard', icon: <FiGrid />, path: '/dashboard' },
   { name: 'Scans', icon: <FiSearch />, path: '/dashboard/scans' },
-  { name: 'Settings', icon: <FiSettings />, path: '/dashboard/settings' },
+  { name: 'Reports', icon: <FiFileText />, path: '/dashboard/reports' },
+  { name: 'Access Logs', icon: <FiKey />, path: '/dashboard/logs' },
   { name: 'Zecure Copilot', icon: <FiCpu />, path: '/dashboard/copilot' },
+  { name: 'Settings', icon: <FiSettings />, path: '/dashboard/settings' },
 ];
 
 export default function Sidebar() {
