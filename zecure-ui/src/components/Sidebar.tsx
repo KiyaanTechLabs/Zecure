@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import {
     Search,
     FileText,
@@ -13,11 +14,7 @@ import {
 import styles from '@/styles/Sidebar.module.scss';
 
 export default function Sidebar() {
-    const [currentPath, setCurrentPath] = useState<string | null>(null);
-
-    useEffect(() => {
-        setCurrentPath(window.location.pathname);
-    }, []);
+    const pathname = usePathname();
 
     const [showProfileMenu, setShowProfileMenu] = useState(false);
     const handleToggleProfile = () => setShowProfileMenu(!showProfileMenu);
@@ -46,9 +43,9 @@ export default function Sidebar() {
             </div>
 
             <nav className={styles.nav}>
-                {currentPath && navItems.map((item) => {
+                {navItems.map((item) => {
                     const Icon = item.icon;
-                    const isActive = currentPath === item.path;
+                    const isActive = pathname === item.path;
 
                     return (
                         <Link
