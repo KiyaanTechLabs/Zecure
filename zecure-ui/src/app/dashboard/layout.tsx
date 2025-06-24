@@ -1,4 +1,3 @@
-'use client';
 import Sidebar from '@/components/Sidebar';
 import styles from '@/styles/Dashboard.module.scss';
 
