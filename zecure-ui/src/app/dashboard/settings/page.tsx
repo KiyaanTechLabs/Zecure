@@ -85,7 +85,7 @@ const SettingsPage: React.FC = () => {
       <h3>Profile Settings</h3>
       <div className={styles.profileHeader}>
         <div className={styles.avatar}>
-          <span>JD</span>
+          <span>S P</span>
         </div>
         <div className={styles.profileInfo}>
           <input type="text" defaultValue="Samarth Patil" className={styles.input} />
