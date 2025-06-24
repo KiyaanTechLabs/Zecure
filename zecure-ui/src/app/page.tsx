@@ -72,7 +72,10 @@ export default function HomePage() {
   const [displayedLines, setDisplayedLines] = useState<TerminalLine[]>([]);
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showDemoModal, setShowDemoModal] = useState(false);
   const router = useRouter();
+
+  const handleScheduleDemo = () => setShowDemoModal(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -132,9 +135,9 @@ export default function HomePage() {
                   className={styles.ctaButton}
                   onClick={() => router.push('/dashboard')}
                 >
-                  Start Free Trial
+                  Enter Zecure
                 </button>
-                <button className={styles.secondaryButton}>
+                <button className={styles.secondaryButton} onClick={handleScheduleDemo}>
                   Schedule Demo
                 </button>
               </div>
@@ -180,6 +183,20 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {showDemoModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <div className={styles.modalLogo}>Zecure<sup>®</sup></div>
+            <h2>Let’s Plan Your Guided Tour</h2>
+            <p>We’re excited to show you how Zecure can proactively protect your systems. In this 1:1 session, we’ll walk you through features tailored to your workflows.</p>
+            <p>Reach out at <strong>samarthpatil@zecure.ai</strong> or just reply to your onboarding email—we'll handle the rest.</p>
+            <button onClick={() => setShowDemoModal(false)} className={styles.secondaryButton}>
+              Got it, thanks!
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Features Section */}
       <section id="features" className={styles.features}>
@@ -273,6 +290,7 @@ export default function HomePage() {
             <div className={styles.footerLeft}>
               <span className={styles.logo}>Zecure</span>
               <span className={styles.copyright}>© 2025 Kiyaan Technologies. All rights reserved.</span>
+              <span>Developed by <strong>Samarth prashant Patil</strong></span>
             </div>
             <div className={styles.footerRight}>
               <a href="#" className={styles.footerLink}>Privacy Policy</a>

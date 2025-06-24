@@ -1,33 +1,779 @@
-.wrapper {
+// Colors and Variables
+$primary-bg: #1a1d29;
+$secondary-bg: #252938;
+$card-bg: #2d3142;
+$accent-blue: #4f7cff;
+$text-primary: #ffffff;
+$text-secondary: #a0a3bd;
+$text-muted: #6b7280;
+$border-color: #3d4051;
+$hover-bg: #353849;
+
+// Status Colors
+$status-clean: #10b981;
+$status-warning: #f59e0b;
+$status-critical: #ef4444;
+$status-failed: #dc2626;
+$status-running: #3b82f6;
+
+// Risk Level Colors
+$risk-low: #10b981;
+$risk-medium: #f59e0b;
+$risk-high: #f97316;
+$risk-critical: #dc2626;
+
+// Container
+.container {
   padding: 2rem;
+  background: $primary-bg;
+  min-height: 100vh;
+  color: $text-primary;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+// Header Section
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.headerContent {
+  flex: 1;
 }
 
 .heading {
-  font-size: 1.5rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: $text-primary;
+}
+
+.subheading {
+  font-size: 1.125rem;
+  color: $text-secondary;
+  margin: 0;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, $accent-blue, #6366f1);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
   font-weight: 600;
-  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(79, 124, 255, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 124, 255, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Filter Tabs
+.filterTabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  background: $secondary-bg;
+  padding: 0.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.filterTab {
+  background: transparent;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  color: $text-secondary;
+  font-size: 0.925rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: $hover-bg;
+    color: $text-primary;
+  }
+
+  &.active {
+    background: $accent-blue;
+    color: white;
+    box-shadow: 0 2px 8px rgba(79, 124, 255, 0.3);
+  }
+}
+
+// Empty State
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: $card-bg;
+  border-radius: 16px;
+  border: 1px solid $border-color;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.6;
+}
+
+.emptyState h3 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+  color: $text-primary;
+}
+
+.emptyState p {
+  color: $text-secondary;
+  margin: 0 0 2rem 0;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.emptyStateButton {
+  background: $accent-blue;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: darken($accent-blue, 10%);
+    transform: translateY(-2px);
+  }
+}
+
+// Scan Grid
+.scanGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.scanCard {
+  background: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-color: $accent-blue;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $accent-blue, #6366f1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
-.scanList {
+.scanDate {
+  color: $text-secondary;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.statusIcon {
+  font-size: 1.25rem;
+}
+
+.cardContent {
+  margin-bottom: 1.5rem;
+}
+
+.scanTarget {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: $text-primary;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.scanMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.duration {
+  color: $text-secondary;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.riskBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &.small {
+    padding: 0.125rem 0.5rem;
+    font-size: 0.625rem;
+  }
+}
+
+.riskLow {
+  background: rgba(16, 185, 129, 0.2);
+  color: $risk-low;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.riskMedium {
+  background: rgba(245, 158, 11, 0.2);
+  color: $risk-medium;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.riskHigh {
+  background: rgba(249, 115, 22, 0.2);
+  color: $risk-high;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.riskCritical {
+  background: rgba(220, 38, 38, 0.2);
+  color: $risk-critical;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.scanStats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  align-items: flex-start;
 }
 
-.scanItem {
-  padding: 1rem;
-  background: #f8fafc;
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.25rem;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.status {
+  padding: 0.5rem 1rem;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  &.clean {
+    background: rgba(16, 185, 129, 0.2);
+    color: $status-clean;
+  }
+
+  &.warning {
+    background: rgba(245, 158, 11, 0.2);
+    color: $status-warning;
+  }
+
+  &.critical {
+    background: rgba(239, 68, 68, 0.2);
+    color: $status-critical;
+  }
+
+  &.failed {
+    background: rgba(220, 38, 38, 0.2);
+    color: $status-failed;
+  }
+
+  &.running {
+    background: rgba(59, 130, 246, 0.2);
+    color: $status-running;
+  }
 }
 
-.statusSuccess {
-  color: #16a34a;
+// Table Section
+.tableSection {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  color: $text-primary;
+}
+
+.tableContainer {
+  background: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.scansTable {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    background: $secondary-bg;
+    color: $text-secondary;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+  }
+
+  td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid $border-color;
+    color: $text-primary;
+    font-size: 0.925rem;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover {
+    background: $hover-bg;
+  }
+}
+
+.targetCell {
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 500;
 }
 
-.statusError {
-  color: #dc2626;
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
   font-weight: 500;
+
+  &.clean {
+    background: rgba(16, 185, 129, 0.2);
+    color: $status-clean;
+  }
+
+  &.warning {
+    background: rgba(245, 158, 11, 0.2);
+    color: $status-warning;
+  }
+
+  &.critical {
+    background: rgba(239, 68, 68, 0.2);
+    color: $status-critical;
+  }
+
+  &.failed {
+    background: rgba(220, 38, 38, 0.2);
+    color: $status-failed;
+  }
+
+  &.running {
+    background: rgba(59, 130, 246, 0.2);
+    color: $status-running;
+  }
+}
+
+.viewButton {
+  background: transparent;
+  color: $accent-blue;
+  border: 1px solid $accent-blue;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $accent-blue;
+    color: white;
+  }
+}
+
+// Modal
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 0 2rem;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: $text-primary;
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: $text-secondary;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $hover-bg;
+    color: $text-primary;
+  }
+}
+
+.modalContent {
+  padding: 0 2rem;
+}
+
+.scanOverview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: $secondary-bg;
+  border-radius: 12px;
+}
+
+.overviewItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    font-weight: 500;
+  }
+
+  span {
+    color: $text-primary;
+    font-weight: 600;
+  }
+}
+
+.scanResults {
+  margin-bottom: 2rem;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    color: $text-primary;
+  }
+}
+
+.resultStats {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.resultStat {
+  text-align: center;
+}
+
+.statNumber {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  line-height: 1;
+}
+
+.statDesc {
+  display: block;
+  font-size: 0.875rem;
+  color: $text-secondary;
+  margin-top: 0.5rem;
+}
+
+.issuesList {
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: $text-primary;
+  }
+}
+
+.issue {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: $secondary-bg;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.issueType {
+  font-weight: 500;
+  color: $text-primary;
+}
+
+.issueFile {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: $text-secondary;
+}
+
+.modalFooter {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  border-top: 1px solid $border-color;
+  justify-content: flex-end;
+}
+
+.exportButton,
+.shareButton {
+  background: transparent;
+  border: 1px solid $border-color;
+  color: $text-primary;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background: $hover-bg;
+    border-color: $accent-blue;
+  }
+}
+
+// Fixed Scan Button
+.fixedScanButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: linear-gradient(135deg, $accent-blue, #6366f1);
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(79, 124, 255, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 100;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(79, 124, 255, 0.5);
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.925rem;
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .scanGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .heading {
+    font-size: 1.875rem;
+  }
+
+  .tableContainer {
+    overflow-x: auto;
+  }
+
+  .scansTable {
+    min-width: 600px;
+  }
+
+  .modal {
+    margin: 1rem;
+    max-width: none;
+  }
+
+  .modalHeader,
+  .modalContent,
+  .modalFooter {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .scanOverview {
+    grid-template-columns: 1fr;
+  }
+
+  .resultStats {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scanCard {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.scanCard:nth-child(1) { animation-delay: 0.1s; }
+.scanCard:nth-child(2) { animation-delay: 0.2s; }
+.scanCard:nth-child(3) { animation-delay: 0.3s; }
+.scanCard:nth-child(4) { animation-delay: 0.4s; }
+
+// Scrollbar Styling
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: $secondary-bg;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: $border-color;
+  border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: $text-muted;
 }

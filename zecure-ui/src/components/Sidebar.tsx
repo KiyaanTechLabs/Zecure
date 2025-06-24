@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import {
     Search,
     FileText,
@@ -13,7 +13,18 @@ import {
 import styles from '@/styles/Sidebar.module.scss';
 
 export default function Sidebar() {
-    const pathname = usePathname();
+    const [currentPath, setCurrentPath] = useState<string | null>(null);
+
+    useEffect(() => {
+        setCurrentPath(window.location.pathname);
+    }, []);
+
+    const [showProfileMenu, setShowProfileMenu] = useState(false);
+    const handleToggleProfile = () => setShowProfileMenu(!showProfileMenu);
+    const handleLogout = () => {
+        // Redirect to main landing page after logout
+        window.location.href = "/";
+    };
 
     const navItems = [
         { name: 'Dashboard', icon: Shield, path: '/dashboard' },
@@ -35,9 +46,9 @@ export default function Sidebar() {
             </div>
 
             <nav className={styles.nav}>
-                {navItems.map((item) => {
+                {currentPath && navItems.map((item) => {
                     const Icon = item.icon;
-                    const isActive = pathname === item.path;
+                    const isActive = currentPath === item.path;
 
                     return (
                         <Link
@@ -55,7 +66,7 @@ export default function Sidebar() {
             </nav>
 
             <div className={styles.sidebarFooter}>
-                <div className={styles.userProfile}>
+                <div className={styles.userProfile} onClick={handleToggleProfile}>
                     <div className={styles.avatar}>
                         <User size={16} />
                     </div>
@@ -64,6 +75,14 @@ export default function Sidebar() {
                         <span className={styles.userRole}>Security Manager</span>
                     </div>
                 </div>
+                {showProfileMenu && (
+                    <div className={styles.profileDropdown}>
+                        {/* <Link href="/dashboard/profile">View Profile</Link>
+                        <Link href="/dashboard/account">Account Settings</Link>
+                        <Link href="/dashboard/preferences">Preferences</Link> */}
+                        <button onClick={handleLogout}>Logout</button>
+                    </div>
+                )}
             </div>
         </aside>
     );
