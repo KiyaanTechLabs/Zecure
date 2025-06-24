@@ -98,7 +98,10 @@ export default function HomePage() {
       <nav className={styles.nav}>
         <div className={styles.container}>
           <div className={styles.navContent}>
-            <div className={styles.logo}>Zecure</div>
+            <div className={styles.logo}>
+              <img src="/zecure.png" alt="Zecure Logo" className={styles.logoImage} />
+              Zecure
+            </div>
             <div className={styles.navLinks}>
               <a href="#features" className={styles.navLink}>Features</a>
               <a href="#security" className={styles.navLink}>Security</a>

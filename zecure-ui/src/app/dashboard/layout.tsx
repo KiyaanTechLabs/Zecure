@@ -1,15 +1,13 @@
-// app/dashboard/layout.tsx
-"use client";
+'use client';
 import Sidebar from '@/components/Sidebar';
-import '@/styles/globals.scss';
 import styles from '@/styles/Dashboard.module.scss';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={styles.dashboard}>
+    <div className={styles.container}>
       <Sidebar />
-      <div className={styles.main}>
-        <div className={styles.content}>{children}</div>
+      <div className={styles.mainContent}>
+        {children}
       </div>
     </div>
   );
